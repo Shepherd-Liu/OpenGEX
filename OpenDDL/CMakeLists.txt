@@ -11,19 +11,21 @@ set(HEADER_FILES OpenDDL.h ODDLArray.h
     ODDLTree.h
     ODDLTypes.h
     )
+    
+set(MY_)
 
 set_target_properties(OpenDDL
     PROPERTIES PUBLIC_HEADER "${HEADER_FILES}"
 )
 
 install(TARGETS OpenDDL
-    ARCHIVE DESTINATION ${CMAKE_SYSTEM_NAME}/lib
-    PUBLIC_HEADER DESTINATION ${CMAKE_SYSTEM_NAME}/include
+    ARCHIVE DESTINATION ${MYGE_EXTERNAL_ROOT}/lib
+    PUBLIC_HEADER DESTINATION ${MYGE_EXTERNAL_ROOT}/include
 )
 
 if(${MSVC})
     install(FILES ${PROJECT_BINARY_DIR}/OpenDDL/Debug/OpenDDL.pdb
-        DESTINATION ${CMAKE_SYSTEM_NAME}/lib
+        DESTINATION ${MYGE_EXTERNAL_ROOT}/lib
         CONFIGURATIONS Debug
         )
 endif(${MSVC})
